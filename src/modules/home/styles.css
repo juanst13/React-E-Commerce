@@ -1,0 +1,110 @@
+nav ul li {
+    list-style: none;
+    padding: 5px;
+    color: white;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+}
+
+#logoLink {
+    color: white
+}
+
+#logoImage {
+    width: 100px;
+    height: 70px;
+}
+
+#logoDiv {
+    font-weight: bold;
+}
+
+#ulSession {
+    right: 0%;
+}
+
+#inputSearch {
+    width: 500px;
+}
+
+#flex-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header {
+    background-color: #121212;
+}
+
+#message {
+    color: white;
+}
+
+#cartIcon {
+    color: white;
+}
+
+#link {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#imgSlider {
+    width: 50%;
+    height: 400px;
+}
+
+#carouselHome {
+    padding: 20px 200px;
+}
+
+#carousel-control-next {
+    color: #121212;
+}
+
+#descriptionImage {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.card {
+    width: 18rem;
+    margin: 10px;
+}
+
+#cardData {
+    text-decoration: none;
+    color: #121212;
+}
+
+#infoPrice {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#Price {
+    font-size: xx-large;
+}
+
+#discount {
+    font-size: medium;
+    color: green;
+    margin-left: 10px;
+}
+
+#cardsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
