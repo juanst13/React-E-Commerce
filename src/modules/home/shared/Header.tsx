@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-
-import uno from '../../../assets/images/1.png';
+import {
+  faShop,
+  faCartShopping,
+  faMicrochip,
+} from '@fortawesome/free-solid-svg-icons';
 
 export const Header = () => {
   return (
@@ -15,10 +17,11 @@ export const Header = () => {
             <div className="container-fluid" id="flex-container">
               <Link to="/" className="navbar-brand" id="logoLink">
                 <div className="row" id="logoDiv">
-                  <img src={uno} alt="Mercado Logo" id="logoImage" />
-                  A&M
-                  <br />
-                  Asian Market
+                  <div>
+                    <FontAwesomeIcon icon={faShop} id="shopIcon" className='me-2'/>
+                    <FontAwesomeIcon icon={faMicrochip} id="leafIcon" /> 
+                  </div>
+                  <div>Tecno-Market</div>
                 </div>
               </Link>
               <form className="d-flex" role="search">
@@ -30,10 +33,10 @@ export const Header = () => {
                   id="inputSearch"
                 />
               </form>
-              <p id='message'>Ingresa para disfrutar de nuestras ofertas!</p>
+              <p id="message">Ingresa para disfrutar de nuestras ofertas!</p>
             </div>
             <div id="flex-container">
-              <p id='message'>Mejores productos</p>
+              <p id="message">Mejores productos</p>
               <ul>
                 <li className="nav-item dropdown">
                   <Link

@@ -1,0 +1,53 @@
+#image {
+    width: 100%;
+    height: 500px;
+}
+
+#infoCard {
+    border-width: 0px;
+}
+
+#infoCardText {
+    text-align: center;
+}
+
+#infoTitleCard {
+    font-size: x-large;
+    color: #1e2226;
+    font-weight: 300;
+}
+
+#infoDescriptionCard {
+    font-size: medium;
+    color: #717177;
+}
+
+#infoIconColor {
+    color: #274caa;
+    background-color: rgb(242, 246, 248);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+#infoContainer {
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(242, 246, 248);
+}
+
+h4 {
+    text-align: center;
+    font-weight: 400;
+}
+
+#globalContainer {
+    background-color: rgb(242, 246, 248);
+}
+
+#homeInfoContainer {
+    background-color: rgb(242, 246, 248);
+    text-align: center;
+    margin: 50px;
+    margin-right: 10%;
+    margin-left: 10%;
+}

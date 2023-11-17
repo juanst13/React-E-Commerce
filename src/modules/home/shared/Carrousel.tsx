@@ -1,29 +1,36 @@
 import React from 'react';
 
-import dos from '../../../assets/images/2.jpeg';
-import tres from '../../../assets/images/3.jpeg';
-import cuatro from '../../../assets/images/4.jpeg';
+import pc from '../../../assets/images/1.webp';
+import consoles from '../../../assets/images/3.jpeg';
+import smartphones from '../../../assets/images/2.jpeg';
 
 export const Carrousel = () => {
   return (
     <div id="carouselHome" className="carousel slide">
       <div className="carousel-inner">
-        <div className="carousel-item active container">
+        <div className="carousel-item active">
           <div className="row" id="descriptionImage">
-            <img src={dos} className="d-block" alt={dos} id="imgSlider" />
-            50% Off!
+            <img src={pc} className="d-block" alt="pc" id="imgSlider" />
           </div>
         </div>
-        <div className="carousel-item container">
+        <div className="carousel-item">
           <div className="row" id="descriptionImage">
-            <img src={tres} className="d-block" alt={dos} id="imgSlider" />
-            50% Off!
+            <img
+              src={consoles}
+              className="d-block"
+              alt="videogames"
+              id="imgSlider"
+            />
           </div>
         </div>
-        <div className="carousel-item container">
+        <div className="carousel-item">
           <div className="row" id="descriptionImage">
-            <img src={cuatro} className="d-block" alt={dos} id="imgSlider" />
-            50% Off!
+            <img
+              src={smartphones}
+              className="d-block"
+              alt="smartphones"
+              id="imgSlider"
+            />
           </div>
         </div>
       </div>
