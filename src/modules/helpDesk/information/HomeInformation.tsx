@@ -1,10 +1,4 @@
-import React from 'react';
-
-import { Header } from '../../home/shared/Header';
-
 import info from '../../../assets/images/info.jpeg';
-
-import { Footer } from '../../home/shared/Footer';
 
 const elements = [
   {
@@ -25,7 +19,6 @@ const elements = [
 export const HomeInformation = () => {
   return (
     <div id="globalContainer">
-      <Header />
       <img src={info} alt="how-payment" id="image" />
       <div id="homeInfoContainer">
         <h4>Información General</h4>
@@ -35,7 +28,6 @@ export const HomeInformation = () => {
           </p>
         ))}
       </div>
-      <Footer />
     </div>
   );
 };

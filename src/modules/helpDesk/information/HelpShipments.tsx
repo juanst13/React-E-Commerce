@@ -1,12 +1,7 @@
-import React from 'react';
-
-import { Header } from '../../home/shared/Header';
-
 import shipments from '../../../assets/images/shipments.jpeg';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruckFast, faShip } from '@fortawesome/free-solid-svg-icons';
-import { Footer } from '../../home/shared/Footer';
 
 const elements = [
   {
@@ -28,7 +23,6 @@ const elements = [
 export const HelpShipments = () => {
   return (
     <div id="globalContainer">
-      <Header />
       <img src={shipments} alt="how-payment" id="image" />
       <div className="row mt-5 mb-5" id="infoContainer">
         <h4>Contamos con estos medios de envíos</h4>
@@ -50,7 +44,6 @@ export const HelpShipments = () => {
           </div>
         ))}
       </div>
-      <Footer />
     </div>
   );
 };

@@ -6,34 +6,79 @@ import { NotFound } from '../modules/notFound/NotFound';
 import { HomeInformation } from '../modules/helpDesk/information/HomeInformation';
 import { HelpPayments } from '../modules/helpDesk/information/HelpPayments';
 import { HelpShipments } from '../modules/helpDesk/information/HelpShipments';
+import { Product } from '../modules/product/Product';
+import { Header } from '../shared/components/Header';
+import { Footer } from '../shared/components/Footer';
+
+export const Layout = ({ children }: any) => {
+  return (
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
+};
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: (
+      <Layout>
+        <Home />
+      </Layout>
+    ),
   },
   {
     path: '/login',
-    element: <Login />,
+    element: (
+      <Layout>
+        <Login />
+      </Layout>
+    ),
   },
   {
     path: '/register',
-    element: <Register />,
+    element: (
+      <Layout>
+        <Register />
+      </Layout>
+    ),
   },
   {
     path: '*',
-    element: <NotFound />,
+    element: (
+      <Layout>
+        <NotFound />
+      </Layout>
+    ),
   },
   {
     path: '/help',
-    element: <HomeInformation />,
+    element: (
+      <Layout>
+        <HomeInformation />
+      </Layout>
+    ),
   },
   {
     path: '/how-pay-online',
-    element: <HelpPayments />,
+    element: (
+      <Layout>
+        <HelpPayments />
+      </Layout>
+    ),
   },
   {
     path: '/help-shipments',
-    element: <HelpShipments />,
+    element: (
+      <Layout>
+        <HelpShipments />
+      </Layout>
+    ),
+  },
+  {
+    path: '/product',
+    element: <Product/>
   },
 ]);

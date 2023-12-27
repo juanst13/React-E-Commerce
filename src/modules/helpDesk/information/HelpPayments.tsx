@@ -1,5 +1,3 @@
-import React from 'react';
-
 import payment from '../../../assets/images/payment.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -9,8 +7,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import './styles.css';
-import { Footer } from '../../home/shared/Footer';
-import { Header } from '../../home/shared/Header';
 
 const elements = [
   {
@@ -39,7 +35,6 @@ const elements = [
 export const HelpPayments = () => {
   return (
     <div id="globalContainer">
-      <Header />
       <img src={payment} alt="how-payment" id="image" />
       <div className="row mt-5 mb-5" id="infoContainer">
         <h4>Puedes pagar tus compras con estos medios</h4>
@@ -61,7 +56,6 @@ export const HelpPayments = () => {
           </div>
         ))}
       </div>
-      <Footer />
     </div>
   );
 };

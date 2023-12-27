@@ -1,0 +1,62 @@
+#containerPlus {
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+    background-color: white;
+    margin-top: 30px;
+    border-radius: 5px;
+    border: 1px solid #dfdfdf;
+}
+
+img{
+    margin: 15px;
+}
+
+#productInfo {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dfdfdf;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#ratingInfo {
+    display: flex;
+    color: #7b7b7b;
+}
+
+#rating {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#priceInfo {
+    display: flex;
+    flex-direction: column;
+    font-size: xx-large;
+    font-weight: 300;
+    margin-right: 5px;
+}
+
+#discountInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#offer {
+    color: rgb(50, 169, 52);
+}
+
+#delOffer {
+    color: #948e8e;
+}
+
+#StockInfo {
+    display: flex;
+    align-items: center;
+}
+
+#sellerInfo{
+    margin-top: 15px;
+}

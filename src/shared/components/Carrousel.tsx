@@ -1,8 +1,8 @@
 import React from 'react';
 
-import pc from '../../../assets/images/1.webp';
-import consoles from '../../../assets/images/3.jpeg';
-import smartphones from '../../../assets/images/2.jpeg';
+import pc from '../../assets/images/1.webp';
+import smartphones from '../../assets/images/2.jpeg';
+import consoles from '../../assets/images/3.jpeg';
 
 export const Carrousel = () => {
   return (
