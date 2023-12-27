@@ -1,0 +1,29 @@
+body>#root>div {
+    height: 100vh;
+}
+
+#registerContainer {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+#Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+
+h4 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: center;
+}

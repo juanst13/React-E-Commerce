@@ -1,6 +1,6 @@
-#containerPlus {
+#containerGlobal {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 25px;
     background-color: white;
     margin-top: 30px;
@@ -8,7 +8,12 @@
     border: 1px solid #dfdfdf;
 }
 
-img{
+#containerPlus {
+    display: flex;
+    flex-direction: row;
+}
+
+img {
     margin: 15px;
 }
 
@@ -57,6 +62,21 @@ img{
     align-items: center;
 }
 
-#sellerInfo{
+#sellerInfo {
     margin-top: 15px;
+}
+
+#table {
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+#titleProduct {
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#detail {
+    margin-top: 30px;
 }

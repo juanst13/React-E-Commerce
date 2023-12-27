@@ -8,8 +8,18 @@ export interface ProductProps {
   stock: number;
   seller: string;
   description: string;
-  detail: string;
-  questionsAndAswers: {};
+  detail: {
+    Gender: string;
+    Series: string;
+    Height: string;
+    Mark: string;
+  };
+  questionsAndAswers: {
+    Q1: string;
+    Q2: string;
+    A1: string;
+    A2: string;
+  };
 }
 
 const productInitialState: ProductProps = {
@@ -20,8 +30,18 @@ const productInitialState: ProductProps = {
   stock: 0,
   seller: '',
   description: '',
-  detail: '',
-  questionsAndAswers: {},
+  detail: {
+    Gender: 'Anime',
+    Series: 'Naruto',
+    Height: '12 cm',
+    Mark: 'Shonen',
+  },
+  questionsAndAswers: {
+    Q1: '',
+    Q2: '',
+    A1: '',
+    A2: '',
+  },
 };
 
 export const productSlice = createSlice({

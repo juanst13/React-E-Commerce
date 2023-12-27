@@ -9,6 +9,7 @@ import { HelpShipments } from '../modules/helpDesk/information/HelpShipments';
 import { Product } from '../modules/product/Product';
 import { Header } from '../shared/components/Header';
 import { Footer } from '../shared/components/Footer';
+import { RegisterForm } from '../modules/register/RegisterForm/RegisterForm';
 
 export const Layout = ({ children }: any) => {
   return (
@@ -39,11 +40,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/register',
-    element: (
-      <Layout>
-        <Register />
-      </Layout>
-    ),
+    element: <Register />,
   },
   {
     path: '*',
@@ -79,6 +76,10 @@ export const router = createBrowserRouter([
   },
   {
     path: '/product',
-    element: <Product/>
+    element: <Product />,
+  },
+  {
+    path: '/registerForm',
+    element: <RegisterForm />,
   },
 ]);
