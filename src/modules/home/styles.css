@@ -179,3 +179,9 @@ footer {
     font-size: small;
     color: black;
 }
+
+#userInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

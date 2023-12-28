@@ -49,11 +49,10 @@ export const SalesCard: React.FC<CardProps> = ({
             Mark: 'Shonen',
           },
           questionsAndAswers: {
-            
             Q1: '¿Lorem Ipsum?',
-    Q2: '¿Neque porro quisquam?',
-    A1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin blandit lectus, vitae imperdiet nisl varius a. Pellentesque rhoncus vehicula dolor id varius. Integer erat nibh, maximus eget consequat eu, laoreet in quam. Nam vel tortor eu libero fermentum dictum et vitae diam. Integer ac elit sed mauris tempus ultricies. Integer semper, odio eget dapibus gravida, velit ligula convallis tortor, in suscipit erat est sit amet urna. Aenean tristique eu tortor congue placerat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus in nulla libero',
-    A2: 'Duis pulvinar eu neque at lacinia. Duis maximus odio in diam ullamcorper, at suscipit lacus sagittis. Phasellus imperdiet et metus id hendrerit. Donec ornare aliquam nisi, quis eleifend erat semper a. Maecenas tempor id velit id luctus. Donec viverra ipsum eu diam rhoncus commodo. Sed luctus mollis bibendum. Praesent auctor euismod leo, id dictum nisi molestie ut. Nam pellentesque erat odio, id condimentum velit scelerisque vel. Mauris et massa enim. Etiam eu egestas justo. Nullam convallis aliquam lorem tincidunt elementum. In nec placerat magna.',
+            Q2: '¿Neque porro quisquam?',
+            A1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin blandit lectus, vitae imperdiet nisl varius a. Pellentesque rhoncus vehicula dolor id varius. Integer erat nibh, maximus eget consequat eu, laoreet in quam. Nam vel tortor eu libero fermentum dictum et vitae diam. Integer ac elit sed mauris tempus ultricies. Integer semper, odio eget dapibus gravida, velit ligula convallis tortor, in suscipit erat est sit amet urna. Aenean tristique eu tortor congue placerat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus in nulla libero',
+            A2: 'Duis pulvinar eu neque at lacinia. Duis maximus odio in diam ullamcorper, at suscipit lacus sagittis. Phasellus imperdiet et metus id hendrerit. Donec ornare aliquam nisi, quis eleifend erat semper a. Maecenas tempor id velit id luctus. Donec viverra ipsum eu diam rhoncus commodo. Sed luctus mollis bibendum. Praesent auctor euismod leo, id dictum nisi molestie ut. Nam pellentesque erat odio, id condimentum velit scelerisque vel. Mauris et massa enim. Etiam eu egestas justo. Nullam convallis aliquam lorem tincidunt elementum. In nec placerat magna.',
           },
         })
       }

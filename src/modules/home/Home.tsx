@@ -49,6 +49,7 @@ const products = [
 ];
 
 export const Home = () => {
+
   return (
     <div id="container">
       <Carrousel />

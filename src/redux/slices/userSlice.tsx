@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface UserProps {
+export interface UserProps {
   firstName: string;
   lastName: string;
+  secondLastName: string;
   userName: string;
   email: string;
-  password: string;
   avatar: string;
   phone: string;
 }
@@ -13,9 +13,9 @@ interface UserProps {
 const userInitialState: UserProps = {
   firstName: '',
   lastName: '',
+  secondLastName: '',
   userName: '',
   email: '',
-  password: '',
   avatar: '',
   phone: '',
 };
@@ -24,22 +24,24 @@ export const userSlice = createSlice({
   name: 'user',
   initialState: userInitialState,
   reducers: {
-    addUser: (state, action) => {
-      const { firstName, lastName, userName, email, password, avatar, phone } =
-        action.payload;
+    addUserStore: (state, action) => {
+      const {
+        firstName,
+        lastName,
+        secondLastName,
+        userName,
+        email,
+        phone,
+      } = action.payload;
       state.firstName = firstName;
       state.lastName = lastName;
+      state.secondLastName = secondLastName;
       state.userName = userName;
       state.email = email;
-      state.password = password;
-      state.avatar = avatar;
       state.phone = phone;
     },
     changeEmail: (state, action) => {
       state.email = action.payload;
-    },
-    changePassword: (state, action) => {
-      state.password = action.payload;
     },
     changePhone: (state, action) => {
       state.phone = action.payload;
@@ -50,6 +52,9 @@ export const userSlice = createSlice({
     changeLastName: (state, action) => {
       state.lastName = action.payload;
     },
+    changeSecondLastName: (state, action) => {
+      state.secondLastName = action.payload;
+    },
     changeAvatar: (state, action) => {
       state.avatar = action.payload;
     },
@@ -58,11 +63,11 @@ export const userSlice = createSlice({
 
 export default userSlice.reducer;
 export const {
-  addUser,
+  addUserStore,
   changeEmail,
-  changePassword,
   changePhone,
   changeAvatar,
   changeFirstName,
   changeLastName,
+  changeSecondLastName,
 } = userSlice.actions;

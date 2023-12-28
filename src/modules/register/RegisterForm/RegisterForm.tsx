@@ -1,49 +1,138 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './styles.css';
 import { HeaderBasic } from '../../../shared/components/HeaderBasic';
-import {
-  Box,
-  FilledInput,
-  FormControl,
-  FormHelperText,
-  Input,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  TextField,
-} from '@mui/material';
+import { Box, InputAdornment, TextField } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAt,
   faCircleUser,
   faEye,
   faEyeSlash,
+  faPhone,
 } from '@fortawesome/free-solid-svg-icons';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import app from '../../../Credencials';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUserStore } from '../../../redux/slices/userSlice';
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const initialState = {
+  firstName: '',
+  lastName: '',
+  secondLastName: '',
+  userName: '',
+  phone: 0,
+};
+
+const initialStateSession = {
+  email: '',
+  password: '',
+  confirmPassword: '',
+};
 
 export const RegisterForm = () => {
-  const [units, setUnits] = useState<string>('1 unidad');
-  const [unit, setUnit] = useState<string>('1 unidad');
-  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleClickSetunits = () => setUnits(unit);
+  const [showPassword, setShowPassword] = useState(false);
+  const [userData, setUserData] = useState(initialState);
+  const [sessionData, setSessionData] = useState(initialStateSession);
+  const [disabled, setDisabled] = useState(true);
+  const [errorInfo, setErrorInfo] = useState({
+    error: '',
+    isError: false,
+  });
+
+  useEffect(() => {
+    const validations = () => {
+      const { firstName, lastName, phone } = userData;
+      const { email, password, confirmPassword } = sessionData;
+      let disable =
+        firstName.trim().length === 0 ||
+        lastName.trim().length === 0 ||
+        phone.toString().trim().length === 0 ||
+        email.trim().length === 0 ||
+        password.trim().length === 0 ||
+        confirmPassword.trim().length === 0 ||
+        password !== confirmPassword ||
+        password.trim().length < 6;
+      setDisabled(disable);
+    };
+    validations();
+  }, [userData, sessionData]);
+
+  const redirectHome = () => {
+    navigate('/');
+  };
 
   const handlerShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const onChangeUserData = (value: string, field: string) => {
+    setUserData({ ...userData, [field]: value });
+  };
+
+  const onChangeSessionData = (value: string, field: string) => {
+    setSessionData({ ...sessionData, [field]: value });
+  };
+
+  const addUser = async (e: any) => {
+    e.preventDefault();
+
+    await createUserWithEmailAndPassword(
+      auth,
+      sessionData.email,
+      sessionData.password
+    )
+      .then(async () => {
+        await addDoc(collection(db, 'users'), {
+          ...userData,
+        });
+        const { firstName, lastName, secondLastName, userName, phone } =
+          userData;
+        const { email } = sessionData;
+        dispatch(
+          addUserStore({
+            firstName,
+            lastName,
+            secondLastName,
+            userName,
+            phone,
+            email,
+          })
+        );
+        redirectHome();
+        setUserData({ ...initialState });
+        setSessionData({ ...initialStateSession });
+      })
+      .catch((error) => {
+        console.error(error.code);
+        setErrorInfo({ ...errorInfo, error: error.code, isError: true });
+      });
   };
 
   return (
     <div id="container">
       <HeaderBasic />
       <div id="Container">
-        <div id="registerContainer">
+        <div id="registerFormContainer">
           <h3>Completa los datos para crear tu cuenta</h3>
           <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
             <div>
               <TextField
                 label="Nombres"
-                id="outlined-start-adornment"
+                id="outlined-start-adornment FirstName"
+                placeholder="Campo obligatorio"
                 sx={{ m: 1, width: '60ch' }}
+                onChange={({ target }) =>
+                  onChangeUserData(target.value, 'firstName')
+                }
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -54,8 +143,12 @@ export const RegisterForm = () => {
               />
               <TextField
                 label="Primer apellido"
-                id="outlined-start-adornment"
+                id="outlined-start-adornment LastName"
+                placeholder="Campo obligatorio"
                 sx={{ m: 1, width: '29ch' }}
+                onChange={({ target }) =>
+                  onChangeUserData(target.value, 'lastName')
+                }
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -66,8 +159,11 @@ export const RegisterForm = () => {
               />
               <TextField
                 label="Segundo apellido"
-                id="outlined-start-adornment"
+                id="outlined-start-adornment SecondLastname"
                 sx={{ m: 1, width: '29ch' }}
+                onChange={({ target }) =>
+                  onChangeUserData(target.value, 'secondLastName')
+                }
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -77,9 +173,32 @@ export const RegisterForm = () => {
                 }}
               />
               <TextField
-                label="Correo electrónico"
-                id="outlined-start-adornment"
+                label="Teléfono celular"
+                id="outlined-start-adornment Phone"
+                placeholder="Campo obligatorio"
                 sx={{ m: 1, width: '60ch' }}
+                type="number"
+                onChange={({ target }) => {
+                  onChangeUserData(target.value, 'phone');
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <FontAwesomeIcon icon={faPhone} size="xl" />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <TextField
+                label="Correo electrónico"
+                id="outlined-start-adornment Email"
+                placeholder="Campo obligatorio"
+                sx={{ m: 1, width: '60ch' }}
+                onChange={({ target }) => {
+                  onChangeSessionData(target.value, 'email');
+                  const username = target.value.split('@');
+                  onChangeUserData(username[0], 'userName');
+                }}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -90,9 +209,12 @@ export const RegisterForm = () => {
               />
               <TextField
                 label="Contraseña"
-                id="outlined-start-adornment"
+                id="outlined-start-adornment Password"
                 sx={{ m: 1, width: '29ch' }}
                 type={showPassword ? 'text' : 'password'}
+                onChange={({ target }) =>
+                  onChangeSessionData(target.value, 'password')
+                }
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -107,9 +229,12 @@ export const RegisterForm = () => {
               />
               <TextField
                 label="Confirmar contraseña"
-                id="outlined-start-adornment"
+                id="outlined-start-adornment ConfirmPassword"
                 sx={{ m: 1, width: '29ch' }}
                 type={showPassword ? 'text' : 'password'}
+                onChange={({ target }) =>
+                  onChangeSessionData(target.value, 'confirmPassword')
+                }
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -122,13 +247,18 @@ export const RegisterForm = () => {
                   ),
                 }}
               />
+              {errorInfo.isError && <p id="textError">{errorInfo.error}</p>}
             </div>
           </Box>
           <button
             type="button"
             className="btn btn-primary"
-            onClick={handleClickSetunits}
-            style={{ height: '50px', marginTop: '30px', marginBottom: '30px' }}
+            onClick={addUser}
+            style={{
+              height: '50px',
+              marginBottom: '30px',
+            }}
+            disabled={disabled}
           >
             Registrarse
           </button>

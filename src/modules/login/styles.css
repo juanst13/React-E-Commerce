@@ -1,0 +1,29 @@
+#buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#loginContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+}
+
+#loginContainer {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+#textError {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}

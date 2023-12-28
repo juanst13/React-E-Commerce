@@ -2,7 +2,7 @@ body>#root>div {
     height: 100vh;
 }
 
-#registerContainer {
+#registerFormContainer {
     display: flex;
     flex-direction: column;
     width: 40%;
@@ -22,4 +22,10 @@ h3 {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+#textError{
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
 }
