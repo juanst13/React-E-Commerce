@@ -9,6 +9,8 @@ import PNS from '../../assets/images/PNS.png';
 import NH from '../../assets/images/NH.png';
 
 import { SalesCard } from '../../shared/components/SalesCard';
+import { Footer } from '../../shared/components/Footer';
+import { Header } from '../../shared/components/Header';
 
 const products = [
   {
@@ -49,25 +51,28 @@ const products = [
 ];
 
 export const Home = () => {
-
   return (
-    <div id="container">
-      <Carrousel />
-      <div className="row mt-3" id="cardsContainer">
-        <h3 className="ms-5" id="title">
-          Más populares
-        </h3>
-        {products.map(({ id, imgSrc, title, price, discount }) => (
-          <SalesCard
-            key={id}
-            id={id}
-            imgSrc={imgSrc}
-            title={title}
-            price={price}
-            discount={discount}
-          />
-        ))}
+    <>
+      <div>
+        <Header />
+        <Carrousel />
+        <div className="row mt-3" id="cardsContainer">
+          <h3 className="ms-5" id="title">
+            Más populares
+          </h3>
+          {products.map(({ id, imgSrc, title, price, discount }) => (
+            <SalesCard
+              key={id}
+              id={id}
+              imgSrc={imgSrc}
+              title={title}
+              price={price}
+              discount={discount}
+            />
+          ))}
+        </div>
+        <Footer />
       </div>
-    </div>
+    </>
   );
 };

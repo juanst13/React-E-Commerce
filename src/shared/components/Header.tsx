@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -16,6 +16,7 @@ const auth = getAuth(app);
 
 export const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { firstName, lastName } = useSelector((state: any) => state.user);
 
@@ -37,9 +38,13 @@ export const Header = () => {
       .catch(console.log);
   };
 
+  const goToSettings = () => {
+    navigate('/settings');
+  };
+
   return (
-    <header>
-      <div className="container">
+    <header id="header-container">
+      <div>
         <nav className="navbar navbar-expand-lg">
           <div className="row">
             <div className="container-fluid" id="flex-container">
@@ -65,10 +70,77 @@ export const Header = () => {
                   id="inputSearch"
                 />
               </form>
-              <p id="message">Ingresa para disfrutar de nuestras ofertas!</p>
+              {/* <p id="message">Ingresa para disfrutar de nuestras ofertas!</p> */}
+              <ul>
+                {firstName ? (
+                  <>
+                    <li>
+                      <div className="btn-group">
+                        <button
+                          type="button"
+                          className="btn btn-dark dropdown-toggle"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                          id="dropdownMenuClickableInside"
+                          data-bs-auto-close="outside"
+                        >
+                          <FontAwesomeIcon
+                            icon={faCircleUser}
+                            size="xl"
+                            style={{ marginRight: '10px' }}
+                          />
+                          <strong>
+                            {firstName} {lastName}
+                          </strong>
+                        </button>
+                        <ul
+                          className="dropdown-menu"
+                          aria-labelledby="dropdownMenuClickableInside"
+                        >
+                          <li className="dropdown-item" onClick={goToSettings}>
+                            Configuración
+                          </li>
+                          <li className="dropdown-item" onClick={() => {}}>
+                            Seguridad
+                          </li>
+                          <li>
+                            <hr className="dropdown-divider" />
+                          </li>
+                          <li className="dropdown-item" onClick={logout}>
+                            Cerrar sesión
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                      <Link to="#" id="link">
+                        Mis compras
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="#" id="link">
+                        <FontAwesomeIcon icon={faCartShopping} id="cartIcon" />
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <Link to="/register" id="link">
+                        Crea tu cuenta
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/login" id="link">
+                        Ingresa
+                      </Link>
+                    </li>
+                  </>
+                )}
+              </ul>
             </div>
-            <div id="flex-container">
-              <p id="message">Mejores productos</p>
+            <div>
+              {/* <p id="message">Mejores productos</p>
               <ul>
                 <li className="nav-item dropdown">
                   <Link
@@ -114,8 +186,8 @@ export const Header = () => {
                     Vender
                   </Link>
                 </li>
-              </ul>
-              <ul>
+              </ul> */}
+              {/* <ul>
                 {firstName ? (
                   <div id="userInfo">
                     <li>
@@ -181,7 +253,7 @@ export const Header = () => {
                     </li>
                   </>
                 )}
-              </ul>
+              </ul> */}
             </div>
           </div>
         </nav>

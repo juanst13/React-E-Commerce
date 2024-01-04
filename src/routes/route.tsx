@@ -10,6 +10,7 @@ import { Product } from '../modules/product/Product';
 import { Header } from '../shared/components/Header';
 import { Footer } from '../shared/components/Footer';
 import { RegisterForm } from '../modules/register/RegisterForm/RegisterForm';
+import { Settings } from '../modules/settings/Settings';
 
 export const Layout = ({ children }: any) => {
   return (
@@ -24,11 +25,7 @@ export const Layout = ({ children }: any) => {
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <Layout>
-        <Home />
-      </Layout>
-    ),
+    element: <Home />,
   },
   {
     path: '/login',
@@ -77,5 +74,9 @@ export const router = createBrowserRouter([
   {
     path: '/registerForm',
     element: <RegisterForm />,
+  },
+  {
+    path: '/settings',
+    element: <Settings />,
   },
 ]);

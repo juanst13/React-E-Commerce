@@ -255,8 +255,10 @@ export const RegisterForm = () => {
             className="btn btn-primary"
             onClick={addUser}
             style={{
+              width: '500px',
               height: '50px',
               marginBottom: '30px',
+              marginTop: '10px',
             }}
             disabled={disabled}
           >
